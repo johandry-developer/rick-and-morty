@@ -1,0 +1,17 @@
+.home-pages {
+    padding-top: 60px;
+
+    &__title {
+        color: black;
+        font-size: 90px;
+
+    }
+
+    &__container-grid-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        background: $darkGray;
+        padding: 60px 25px;
+    }  
+}
