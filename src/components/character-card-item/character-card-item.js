@@ -1,28 +1,35 @@
 import React from 'react'
-import testImage from '../../assets/test.jpg'
 
 
-const CharacterCardItem = () => {
 
+const CharacterCardItem = ({personaje}) => {
+
+    const validateAge =(age)=>{
+        if (age) {
+            return `${age} años`;  
+        } else {
+            return "no tiene edad"
+        }
+    }
+
+    
     return (
         <div className='item-card'>
             <div className='item-card__container-image'>
-            <img src={testImage} alt=""/>
+                <img src={personaje?.image} alt=""/>
             </div>
 
             <div className="item-card__container-text">
                 <div className="item-card__container-text__box1">
-                    <p className="item-card__container-text__box1__title">Armagedon</p>
-                    <p className='item-card__container-text__box1__subtitle'>Episodio 1</p>
-            
+                    <p className="item-card__container-text__box1__title">{personaje.name ? personaje.name : "no tiene nombre"}</p>
+                    <p className='item-card__container-text__box1__subtitle'>Genero: {personaje?.gender}</p>
                 </div>
                 <div className="item-card__container-text__box2">
-                    <p className="item-card__container-text__box2__title">Last known location:</p>
-                    <p className="item-card__container-text__box2__subtitle">Signus 5 Expanse</p>
-                </div>
+                    <p className="item-card__container-text__box2__title">Especie: {personaje?.species}</p>
+                    <p className="item-card__container-text__box2__subtitle">Status: {personaje?.status}</p>
+                </div>  
                 <div className="item-card__container-text__box3">
-                    <p className="item-card__container-text__box3__title">First seen in:</p>
-                    <p className="item-card__container-text__box3__subtitle">Get Schwifty</p>   
+                    <p className="item-card__container-text__box3__title">Locación: {personaje?.location.name} </p>
                 </div>
             </div>
         </div>

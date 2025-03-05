@@ -1,0 +1,107 @@
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 90%;
+    max-width: 600px;
+    margin: 60px auto;
+    //overflow: hidden;
+    //overflow: scroll;
+    //para poder usar overflow necesitas una altura definida
+    outline: 15px solid black;
+    border-radius: 15px;
+}
+
+.item {
+    height: inherit;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.red {
+    background: red;
+}
+.yellow {
+    background: yellow;
+}
+.green{
+    background: green;
+}
+.blue {
+    background: blue;
+}
+.purple {
+    background: purple;
+}
+.brown {
+    background: brown;
+}
+
+.box {
+    height: 200px; 
+    display: grid;
+
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+}
+
+.special-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.mini-box {
+    height: 100px;
+}
+
+.container-flex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 500px;
+    margin: 60px auto;
+    outline: 15px solid black;
+    border-radius: 15px;
+}
+
+.col-3 {
+    width: 33.333333333%;
+}
+
+.col-2 {
+    width: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************** MEDIA QUERYS RESPONSIVIDAD ************************************* //
+
+@media (max-width: 700px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
