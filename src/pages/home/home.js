@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import testImage from '../../assets/test.jpg'
+
 import CharacterCardItem from '../../components/character-card-item/character-card-item';
 import { DATA_DUMMY_PERSONAS, DATA_DUMMY_SIMPSON } from '../../components/character-card-item/data';
 import CharacterCardItemHorizontal from '../../components/character-card-item-horizontal/character-card-item-horizontal';
@@ -42,6 +42,24 @@ const Home = ()=> {
         getCharacter()
     }, [pageCurrent]);
 
+
+
+    console.log("Inicio");
+
+    setTimeout(() => {
+      console.log("Timeout 1 (0 ms)");
+    }, 0);
+    
+    Promise.resolve().then(() => {
+      console.log("Promesa resuelta");
+    });
+    
+    setTimeout(() => {
+      console.log("Timeout 2 (100 ms)");
+    }, 5000);
+    
+    console.log("Fin");
+ 
 
     return (
         <div className="home-pages">
@@ -86,6 +104,8 @@ const Home = ()=> {
                     })
                 }
             </div>
+
+            
             
         
             <div className="background-paginator">

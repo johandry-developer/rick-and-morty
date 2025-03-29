@@ -1,0 +1,33 @@
+.header {
+    display: grid;
+    align-items: center;
+    border-bottom: 1px solid #0000007a;
+    background-color: $gray;
+    font-size: 200%;
+    padding: 10px 20px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
+
+    .header-container {
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: column;
+    gap: 25px;
+
+    a {
+        color: $white;
+    }
+
+    .active-link {
+        color: rgb(250, 38, 108) !important;
+        border-bottom: 1px solid red;
+        font-weight: 700;
+    }
+}
+}
+
+
+

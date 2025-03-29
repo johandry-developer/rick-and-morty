@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 
 
 const CharacterCardItem = ({personaje}) => {
+    const navigate = useNavigate();
 
     const validateAge =(age)=>{
         if (age) {
@@ -12,11 +14,16 @@ const CharacterCardItem = ({personaje}) => {
         }
     }
 
-    
+    const clickCharacter = (id) => {
+        navigate(`/character/${id}`);
+    }
+
+   
+
     return (
-        <div className='item-card'>
+        <div className='item-card' onClick={()=>clickCharacter(personaje?.id)} >
             <div className='item-card__container-image'>
-                <img src={personaje?.image} alt=""/>
+                <img src={personaje?.image} alt={personaje?.name}/>
             </div>
 
             <div className="item-card__container-text">
@@ -29,7 +36,7 @@ const CharacterCardItem = ({personaje}) => {
                     <p className="item-card__container-text__box2__subtitle">Status: {personaje?.status}</p>
                 </div>  
                 <div className="item-card__container-text__box3">
-                    <p className="item-card__container-text__box3__title">Locación: {personaje?.location.name} </p>
+                    <p className="item-card__container-text__box3__title">Locación: {personaje?.location?.name} </p>
                 </div>
             </div>
         </div>

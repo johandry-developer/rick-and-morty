@@ -1,7 +1,26 @@
 
 .character-page-container {
     background: $gray;
-    height: inherit;
+    padding: 20px 0 100px 0;
+
+    .container-capitules {
+        background: $darkGray;
+        border-radius: 4px;
+        margin: 30px 60px;
+        padding: 40px;
+        color: $white;
+        margin-bottom: 50px;
+
+        .clase-repite {
+            padding: 5px;
+            border: solid $green;
+            border-radius: 5px;
+            margin: 10px 0 10px
+        }
+    
+    
+    }
+
 }
 
 .character-page {
@@ -59,20 +78,51 @@
         font-size: 14px;
         color: $white;
     }
+
+    .circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+       
+    }
+
+    .square {
+        width: 20px;
+        height: 20px;
+    }
+
+    .inline {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+   
 }
+
+
 
 @media (max-width: 900px) {
 
     .character-page-container {
         background: $gray;
-        height: unset
+        height: unset;
+        
+        .container-capitules {
+            margin: 23px;
+        }
     }
+
+
     
     
     .character-page {
         grid-template-columns: repeat(1, 1fr);
         padding: 30px 20px;
     }
+
+
 
     .img-character {
         height: auto;
