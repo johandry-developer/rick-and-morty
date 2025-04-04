@@ -2,9 +2,10 @@
 
 
 
-export const getApiCharacters = async (pageCurrent, search) => {
+export const getApiCharacters = async (pageCurrent) => {
+    
     try {
-        const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pageCurrent}${search ? `&search=${search}` : undefined}`, {
+        const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pageCurrent}`, {
             method: "GET",
         });
         const data = await response.json();
@@ -54,7 +55,6 @@ export const deleteApiCharacter = async (id) => {
         })
         const data = await response.json()
         return data
-
     } catch(ERROR) {
         console.log("error", ERROR)
     } 

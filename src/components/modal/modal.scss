@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     
+    
     .modal-background {
         position: fixed;
         top: 0;
@@ -17,12 +18,14 @@
         bottom: 0;
         background-color: #000000c4;
         z-index: 21;
+        
     }
 
     .box-modal {
         z-index: 22;
         width: 100%;
         max-width: 400px;
+        
 
         .container-modal {
             background: $white;
@@ -30,11 +33,17 @@
             border-radius: 10px;
             position: relative;
             overflow: hidden;
+          
             
             .header-modal {
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid $darkGray;
                 text-align: center;
                 padding: 20px 10px;
+                background-color: $lightGray; 
+
+                .title-modal {
+                    color: $red;
+                }
             }
 
             .info-modal {
@@ -43,6 +52,39 @@
                 max-height: 250px;
                 overflow: auto;
                 padding-bottom: 80px;
+
+                .paragraph-modal {
+                    font-size: 20px;
+                }
+
+                .character-container-img {
+                    position: relative;
+                    display: inline-block; /* Para que el div solo ocupe el tamaño de la imagen */
+
+                }
+
+                .character-container-img::after {
+                    content: "✖";
+                    color: $red;
+                    font-size: 200px;
+                    font-weight: bold;
+                    position: absolute;
+                    top: 49%;
+                    left: 33%;
+                    transform: translate(-0%, -50%);
+                    pointer-events: none;
+                }
+
+                .img-character {
+                    width: 190px;
+                    height: 190px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid;
+                    margin-left: 70px;
+                    margin-top: 25px;
+                }
+
             }
 
             .footer-modal {
@@ -51,11 +93,11 @@
                 right: 0;
                 bottom: 0;
                 padding: 10px;
-                border-top: 1px solid black;
+                border-top: 1px solid $darkGray;
                 display: flex;
                 justify-content: space-between;
                 gap: 20px;
-                background-color: $white;
+                background-color: $lightGray
 
              
             }

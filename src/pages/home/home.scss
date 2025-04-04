@@ -12,7 +12,7 @@
         justify-content: flex-end; 
         gap: 15px; 
         font-size: 24px;
-        margin: 15px 20px;
+        margin: auto 20px;
 
         &__button {
             cursor: pointer;
@@ -47,18 +47,22 @@
 } 
 
 
-
-
-
-
-
-
 @media (max-width: 900px) {
     .home-pages {
         &__container-grid-items {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            grid-template-columns: repeat(1, 1fr);       
+        }   
     }
+
+    .home-pages__align-grid__button {
+        display: none; 
+    }
+    .home-pages__title {
+            font-size: 60px;
+    }
+    
+
+
 }
 
 

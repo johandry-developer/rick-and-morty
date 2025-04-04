@@ -46,3 +46,10 @@
     }
   }
   
+@media (max-width: 600px) {
+    .paginator {
+        gap: 8px;
+        flex-wrap: wrap;
+        
+    }
+}

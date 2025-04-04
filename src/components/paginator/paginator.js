@@ -9,7 +9,6 @@ const sum = () => {
   if (pageCurrent < totalPages) {
     const suma = pageCurrent + 1;
     settingPage(suma)
-  
   }
 }
 
@@ -38,7 +37,7 @@ const firstPage = () => {
               <FontAwesomeIcon icon={faAnglesLeft}  />
             </button>
 
-            <button className="paginator__button" onClick={rest} disabled={pageCurrent < 1} >
+            <button className="paginator__button" onClick={rest} disabled={pageCurrent <= 1} >
               <FontAwesomeIcon icon={faAngleLeft}  />
             </button>
 

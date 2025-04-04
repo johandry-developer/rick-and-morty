@@ -4,7 +4,6 @@ import { deleteApiCharacter, getApiSingleCharacter } from "../../modules/actions
 import Modal from "../../components/modal/modal";
 
 
-
 const Character = () => {
     const { id } = useParams();
     const [character, setCharacter] = useState();
@@ -12,7 +11,10 @@ const Character = () => {
     const [infoModal, setInfoModal] = useState({
         title: '',
         description: '',
+        image: '',
     })
+
+
 
     const getCharacterId = async () => {
        const response = await getApiSingleCharacter(id)
@@ -22,18 +24,18 @@ const Character = () => {
     const handelInfoModal = () => {
         setInfoModal({
             title: 'Eliminar personaje',
-            description: `Estas seguro que deseas eliminar al personaje ${character?.name}`
+            description: `Estas seguro que deseas eliminar al personaje ${character?.name}`,
+            image: character?.image
         })
     }
 
     const settingModal = () => {
         setIsModalOpen(!isModalOpen);
+
     };
 
     const deleteCharacter = async () => {
-    
-        await deleteApiCharacter(character.id)
- 
+        const response = await deleteApiCharacter(character.id)
         settingModal()
     }
       
@@ -45,23 +47,17 @@ const Character = () => {
     useEffect(()=> {
         handelInfoModal()
     }, [character])
-
-
-    console.log("character", character)
  
     return (
         <div className="character-page-container">
-
             {
                 isModalOpen && 
                     <Modal 
-                    closeModal={settingModal} 
-                    info={infoModal} 
-                    acceptButton={deleteCharacter}
+                        closeModal={settingModal} 
+                        info={infoModal} 
+                        acceptButton={deleteCharacter}
                     />
             }
-        
-
             <div className="character-page">
                 <div className="img-container">
                     <img className="img-character" src={character?.image} alt={`Project johandry character: `} />    
@@ -71,8 +67,7 @@ const Character = () => {
                     <h2 className="sub-title">Gender: {character?.gender ? character.gender : "No tiene genero"} </h2>
                     <h2 className="sub-title-2">location: {character?.location?.name ? character.location.name : "No tiene locación"}</h2>
                     <p className="paragraph">location Url: {character?.location?.url ? character.location.url : "no hay dirección"}</p>
-                    <h2 className="paragraph">Origin:</h2>
-                    <p className="paragraph">{character?.origin?.name ? character.origin.name : "no hay datos"}</p>
+                    <p className="paragraph">Origin: {character?.origin?.name ? character.origin.name : "no hay datos"}</p>
                     <p className="paragraph">{character?.origin?.url ? character.origin.url : "no hay dirección"}</p>
 
                     <h2 className="sub-title-2">Especie: {character?.species ? character.species : "DESCONOCIDO"  }</h2>

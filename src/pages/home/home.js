@@ -26,11 +26,6 @@ const Home = ()=> {
         setOrderGrid(value)
     } 
 
-    const johandry = (x, y, z) => {
-        const sum = x * y
-        return sum + z.map((item)=> item.name + item.lastName )
-    }
-
     const getCharacter = async ()=> {
        const response = await getApiCharacters(pageCurrent)
        setData(response?.results)
@@ -67,22 +62,7 @@ const Home = ()=> {
             <h1 className="home-pages__title text-center">
                 Rick and Morty Crud
             </h1>
-            <h2>
-                {johandry(80, 20, [
-                    {
-                        name: "jose", 
-                        lastName: "sancez",   
-                    }, 
-                    {
-                        name: "ferndo", 
-                        lastName: "sancez",  
-                    },
-                    {
-                        name: "ramiro", 
-                        lastName: "sancez",  
-                    } 
-                  ])}
-            </h2>
+
 
             <div className="home-pages__align-grid">
                 <div className="home-pages__align-grid__button" onClick={()=>selectGrid(false)}>
@@ -105,9 +85,6 @@ const Home = ()=> {
                 }
             </div>
 
-            
-            
-        
             <div className="background-paginator">
                 <Paginator 
                     pageCurrent={pageCurrent}
@@ -116,9 +93,6 @@ const Home = ()=> {
           
                 />
             </div>
-            
-      
-        
         </div>
     )
 }
