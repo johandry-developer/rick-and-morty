@@ -60,6 +60,46 @@ export const deleteApiCharacter = async (id) => {
     } 
 }
 
+export const updateApiCharacter = async (id, data) => {
+    return new Promise(async (resolve, reject) => {
+        console.log(`Simulando actualización del personaje con ID ${id}...`);
+        console.log("Datos recibidos:", data);
 
+        try {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+                method: "PUT", // o PATCH si prefieres actualizar parcialmente
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error("Error en la solicitud de actualización");
+            }
+
+            const result = await response.json();
+
+            setTimeout(() => {
+                resolve({
+                    success: true,
+                    message: `Personaje con ID ${id} actualizado exitosamente.`,
+                    updatedCharacter: {
+                        id,
+                        ...result
+                    }
+                });
+            }, 1500); // simula delay de red
+
+        } catch (error) {
+            console.error("Error en fetch:", error);
+            reject({
+                success: false,
+                message: "Error al actualizar el personaje",
+                error,
+            });
+        }
+    });
+};
 
 

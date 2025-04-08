@@ -2,7 +2,7 @@
     display: grid;
     align-items: center;
     border-bottom: 1px solid #0000007a;
-    background-color: $gray;
+    background-color: $obscure;
     font-size: 200%;
     padding: 10px 20px;
     position: fixed;
@@ -21,8 +21,12 @@
         color: $white;
     }
 
+    a:hover {
+        color: $greenFusion;
+    }
+
     .active-link {
-        color: $green !important;
+        color: $greenFusion !important;
         font-weight: 700;
     }
 }

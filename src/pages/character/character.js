@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { deleteApiCharacter, getApiSingleCharacter } from "../../modules/actions/characters/characters";
 import Modal from "../../components/modal/modal";
 
 
+
 const Character = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [character, setCharacter] = useState();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [infoModal, setInfoModal] = useState({
@@ -14,7 +16,9 @@ const Character = () => {
         image: '',
     })
 
-
+    const goToUpdate = () => {
+        navigate(`/updatecharacter/${character?.id}`);
+    };
 
     const getCharacterId = async () => {
        const response = await getApiSingleCharacter(id)
@@ -77,6 +81,8 @@ const Character = () => {
                         {character?.status ? character.status : "DESCONOCIDO"}
                     </h2>
                     <button className="button" onClick={settingModal}>Eliminar Personaje</button>
+                    <button className="button" onClick={goToUpdate}>Actualizar Personaje</button>
+
                 </div>
             </div>    
             

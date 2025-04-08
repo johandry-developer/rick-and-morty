@@ -8,9 +8,9 @@
     &__button {
         font-size: 24px; /* Tamaño de los íconos */
         padding: 10px 16px; /* Espaciado interno */
-        border: 2px solid $blue; /* Borde grueso azul */
+        border: 2px solid $greenFusion; /* Borde grueso azul */
         border-radius: 8px; /* Bordes redondeados */
-        background-color: $white;
+        background-color: $greenFusionHigth;
         cursor: pointer;
         transition: all 0.3s ease;
     }
@@ -29,7 +29,7 @@
         font-size: 20px;
         font-weight: bold;
         padding: 5px 12px;
-        border: 2px solid $blue;
+        border: 2px solid $greenFusionHigth;
         border-radius: 6px;
         background-color: $white;
     }
@@ -38,9 +38,9 @@
         margin: 0 25px;
         font-size: 16px;
         padding: 5px 9px;
-        border: 2px solid $blue;
+        border: 2px solid $greenFusion;
         border-radius: 8px;
-        background-color: $white;
+        background-color: $greenFusionHigth;
         cursor: pointer;
         transition: all 0.99s ease;
     }

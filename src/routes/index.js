@@ -5,6 +5,7 @@ import Example from '../pages/example/example';
 import Character from '../pages/character/character';
 import Header from '../components/header/header';
 import NewCharacter from '../pages/new-character/new-character';
+import UpdateCharacter from "../pages/updateCharacter/updateCharacter";
 
 
 const AppRoutes = () => {
@@ -17,6 +18,7 @@ const AppRoutes = () => {
                 <Route path="/example" element={<Example/>}/>
                 <Route path="/character/:id" element={<Character/>} /> {/* Ruta dinámica */}
                 <Route path="/new-character" element={<NewCharacter/>} />
+                <Route path="/updatecharacter/:id" element={<UpdateCharacter/>} />
             </Routes>
         </BrowserRouter>
     );

@@ -1,85 +1,119 @@
-
-.item-card {
-    background : $gray;
+.html {
+    overflow-wrap: break-word;
+  }
+  
+  .item-card {
+    background: $obscureHigth;
     display: grid;
     grid-template-columns: 180px 1fr;
-    border-radius: 8px;
+    border-radius: 1rem;
     overflow: hidden;
     cursor: pointer;
-    
+    box-shadow: 0 4px 15px rgba(0, 255, 149, 0.1);
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-5px);
+    }
+  
     &__container-image {
+      width: 100%;
+      height: 100%;
+  
+      img {
         width: 100%;
         height: 100%;
-      
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        object-fit: cover;
+      }
     }
-
+  
     &__container-text {
-        padding: 10px 15px;
-        display: grid;
-        gap: 10px;
-        
-        &__box1 {
-
-          &__title {
-            font-size: 50px;
-            color: $white;
-            font-weight: 900;
-            text-transform: capitalize;
-          }
-          
-           &__subtitle {
-            font-size: 20px;
-            color: $white;
-          }
+      padding: 1rem;
+      display: grid;
+      gap: 0.8rem;
+      overflow-wrap: break-word;
+  
+      &__box1 {
+        &__title {
+          font-size: 2rem;
+          color: $white;
+          font-weight: 900;
+          text-transform: capitalize;
         }
-        
-        &__box2 {
-
-            &__title {
-                font-size: 20px;
-                color: $grayAlternative;
-                font-weight: 400;
-            }
-              
-            &__subtitle {
-                font-size: 24px;
-                color: $white;
-            }
-           
-        } 
-        
-        &__box2 {
-
-            &__title {
-                font-size: 20px;
-                color: $grayAlternative;
-                font-weight: 400;
-            }
-              
-            &__subtitle {
-                font-size: 24px;
-                color: $white;
-            }
-           
+  
+        &__subtitle {
+          font-size: 1.1rem;
+          color: $white;
         }
-
-        &__box3 {
-
-            &__title {
-                font-size: 20px;
-                color: $grayAlternative;
-                font-weight: 400;
-            }
-              
-            &__subtitle {
-                font-size: 19px;
-                color: $white;
-            }    
+      }
+  
+      &__box2,
+      &__box3 {
+        &__title {
+          font-size: 1rem;
+          color: $grayAlternative;
+          font-weight: 400;
         }
+  
+        &__subtitle {
+          font-size: 1.1rem;
+          color: $white;
+        }
+      }
     }
-}
+  
+    // 📱 Responsive
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+  
+      &__container-image {
+        height: 250px;
+  
+        img {
+          border-radius: 0;
+        }
+      }
+  
+      &__container-text {
+        padding: 1rem;
+  
+        &__box1__title {
+          font-size: 1.5rem;
+        }
+  
+        &__box1__subtitle,
+        &__box2__subtitle,
+        &__box3__subtitle {
+          font-size: 1rem;
+        }
+  
+        &__box2__title,
+        &__box3__title {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  
+    // 📱 Extra small devices
+    @media screen and (max-width: 480px) {
+      &__container-text {
+        padding: 0.8rem;
+  
+        &__box1__title {
+          font-size: 1.3rem;
+        }
+  
+        &__box1__subtitle,
+        &__box2__subtitle,
+        &__box3__subtitle {
+          font-size: 0.95rem;
+        }
+  
+        &__box2__title,
+        &__box3__title {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }

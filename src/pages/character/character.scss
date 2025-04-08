@@ -1,6 +1,6 @@
 
 .character-page-container {
-    background: $gray;
+    background: $obscure;
     padding: 100px 0 100px 0;
 
     .container-capitules {
@@ -15,7 +15,8 @@
             padding: 5px;
             border: solid $green;
             border-radius: 5px;
-            margin: 10px 0 10px
+            margin: 10px 0 10px;
+            overflow-wrap: break-word;
         }
     
     
@@ -35,7 +36,7 @@
     display: grid;
     justify-content: start;
     align-items: center;
-    background-color: $darkGray;
+    background-color: $obscureHigth;
     padding: 10px;
     border-radius: 10px;
     max-height: 400px;
@@ -53,7 +54,7 @@
     display: grid;
     gap: 20px;
     padding: 20px;
-    background-color: $darkGray;
+    background-color: $obscureHigth;
     border-radius: 10px;
     align-items: flex-start;
     align-content: flex-start;
@@ -129,3 +130,12 @@
     }
 }
 
+.button {
+    background-color: $green;
+    height: 30px;
+    border: solid;
+    border-radius: 20px;
+    gap: 50px;
+    cursor: pointer;
+    padding: 5px 30px;
+}

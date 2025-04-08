@@ -8,7 +8,7 @@ const DATA_INIT_FORM = {
     species: "",
     gender: "",
     image: "",
- }
+}
 
 const NewCharacter = () => {
 
