@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import CharacterCardItem from '../../components/character-card-item/character-card-item';
 import { DATA_DUMMY_PERSONAS, DATA_DUMMY_SIMPSON } from '../../components/character-card-item/data';
-import CharacterCardItemHorizontal from '../../components/character-card-item-horizontal/character-card-item-horizontal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTableCellsLarge, faTableColumns, faAnglesLeft, faAngleLeft, faAngleRight, faAnglesRight, faEllipsis} from '@fortawesome/free-solid-svg-icons';
 import Paginator from '../../components/paginator/paginator';

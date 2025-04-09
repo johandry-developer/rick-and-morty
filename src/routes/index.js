@@ -10,7 +10,7 @@ import UpdateCharacter from "../pages/updateCharacter/updateCharacter";
 
 const AppRoutes = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/rick-and-morty">
             <Header/>
             <Routes>
                 <Route path="/" element={<Home/>} />

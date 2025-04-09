@@ -83,7 +83,7 @@ export const updateApiCharacter = async (id, data) => {
             setTimeout(() => {
                 resolve({
                     success: true,
-                    message: `Personaje con ID ${id} actualizado exitosamente.`,
+                    message: `El Personaje ${data.name} fue actualizado exitosamente.`,
                     updatedCharacter: {
                         id,
                         ...result

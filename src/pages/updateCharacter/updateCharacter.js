@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { getApiSingleCharacter } from '../../modules/actions/characters/characters';
 import { updateApiCharacter } from '../../modules/actions/characters/characters';
+import LoadingSpinner from '../../components/loadingSpinner/loadingSpinner';
 
 const DATA_INIT_FORM = {
     name: "",
@@ -14,6 +15,7 @@ const DATA_INIT_FORM = {
 const UpdateCharacter = () => {
     const { id } = useParams();
     const [character, setCharacter] = useState();
+    const [isLoading, setIsLoading] = useState(false);
     const [newCharacter, setNewCharacter] = useState(DATA_INIT_FORM);
 
     const getCharacterId = async () => {
@@ -59,21 +61,27 @@ const UpdateCharacter = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setIsLoading(true); // activar loading
+
             // Verificar si todos los campos están llenos
-            if (!newCharacter.name || !newCharacter.species || !newCharacter.gender || !newCharacter.image) {
-                alert("Por favor, completa todos los campos antes de enviar.");
-                return 
-            }
+        if (!newCharacter.name || !newCharacter.species || !newCharacter.gender || !newCharacter.image) {
+            alert("Por favor, completa todos los campos antes de enviar.");
+            setIsLoading(false)
+            return 
+        }
         
         try {
             const response = await updateApiCharacter(id, newCharacter);
             console.log("Respuesta de actualización:", response);
-    
+            setIsLoading(false)
             alert(response.message);
         } catch (error) {
             console.error("Error al actualizar personaje:", error);
             alert("Ocurrió un error al actualizar el personaje.");
-        }
+            
+        } 
+
+        
     };
 
     useEffect(()=> {
@@ -91,6 +99,12 @@ const UpdateCharacter = () => {
 
     return (
         <div className="update-character-container">
+            {
+                isLoading &&  <h2>cualquier</h2>
+            }
+       
+
+
             <h1>Actualización de Personaje</h1>
             <p>Aquí podrás actualizar Datos del personaje.</p>
             <form className='form-update'>
@@ -143,6 +157,7 @@ const UpdateCharacter = () => {
 
             </form>
             
+            {isLoading && <LoadingSpinner />}
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, {useState} from "react";  
 import { createApiNewCharacter } from "../../modules/actions/characters/characters";
+import LoadingSpinner from "../../components/loadingSpinner/loadingSpinner";
 
 
 const DATA_INIT_FORM = {
@@ -16,6 +17,7 @@ const NewCharacter = () => {
 
      const [statusError, setStatusError] = useState('')
      
+     const [isLoading, setIsLoading] = useState(false)
 
      const handleChange =(params)=> {
 
@@ -41,18 +43,28 @@ const NewCharacter = () => {
 
       const sendData = async (e) => {
         e.preventDefault(); // Evita que la página se recargue
-    
+        setIsLoading(true);
         // Verificar si todos los campos están llenos
         if (!newCharacter.name || !newCharacter.lastName || !newCharacter.species || !newCharacter.gender || !newCharacter.image) {
+            console.log("newChar", newCharacter)
             alert("Por favor, completa todos los campos antes de enviar.");
+            setIsLoading(false);
             return 
         }
+        // activa el spinner
 
-        const response = await createApiNewCharacter(newCharacter)
-        setStatusError(response?.status)
-        if (response?.status === 404) {
-            setNewCharacter(DATA_INIT_FORM)
+        try {
+            const response = await createApiNewCharacter(newCharacter)
+            setStatusError(response?.status)
+            if (response?.status === 404) {
+                setNewCharacter(DATA_INIT_FORM);
+            }
+        } catch (err) {
+            console.error("Error al crear personaje:", err);
+        } finally {
+            setIsLoading(false); // desactiva el spinner
         }
+    
     };
 
 
@@ -124,11 +136,10 @@ const NewCharacter = () => {
                 )}
 
                 <button type="submit" onClick={sendData}>Registrar</button>
-
                 
             </form>
 
-           
+            {isLoading && <LoadingSpinner />}
 
         </div>
     )

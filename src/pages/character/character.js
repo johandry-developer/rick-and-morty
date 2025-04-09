@@ -72,7 +72,6 @@ const Character = () => {
                     <h2 className="sub-title-2">location: {character?.location?.name ? character.location.name : "No tiene locación"}</h2>
                     <p className="paragraph">location Url: {character?.location?.url ? character.location.url : "no hay dirección"}</p>
                     <p className="paragraph">Origin: {character?.origin?.name ? character.origin.name : "no hay datos"}</p>
-                    <p className="paragraph">{character?.origin?.url ? character.origin.url : "no hay dirección"}</p>
 
                     <h2 className="sub-title-2">Especie: {character?.species ? character.species : "DESCONOCIDO"  }</h2>
                     <h2 className="sub-title-2 inline">     
